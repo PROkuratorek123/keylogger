@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2019\professional\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="16.0">
+ <Targets>
+  <Target Name="C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\bin\Debug\Discord.exe">
+   <Modules>
+    <Module Name="discord.exe">
+     <Messages>
+      <Message TypeName="MarkWindowsFormsEntryPointsWithStaThread" Category="Microsoft.Usage" CheckId="CA2232" Status="Active" Created="2022-11-10 13:02:09Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Oznacz metodę punktu wejścia 'Program.Main(string[])' w zestawie 'Discord.exe' atrybutem STAThreadAttribute.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="mykeylogger01">
+       <Types>
+        <Type Name="Program" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#CallNextHookEx(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2022-11-10 13:02:09Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Ponieważ metoda 'Program.CallNextHookEx(IntPtr, int, IntPtr, IntPtr)' jest metodą P/Invoke, powinna zostać zdefiniowana w klasie o nazwie NativeMethods, SafeNativeMethods lub UnsafeNativeMethods.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetModuleHandle(System.String)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2022-11-10 13:02:09Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Ponieważ metoda 'Program.GetModuleHandle(string)' jest metodą P/Invoke, powinna zostać zdefiniowana w klasie o nazwie NativeMethods, SafeNativeMethods lub UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message Id="0" TypeName="SpecifyMarshalingForPInvokeStringArguments" Category="Microsoft.Globalization" CheckId="CA2101" Status="Active" Created="2022-11-10 13:02:09Z" FixCategory="NonBreaking">
+             <Issue Name="ParameterImplicitAnsi" Certainty="75" Level="Error">Aby ograniczyć ryzyko związane z zabezpieczeniami, kieruj parametr 'lpModuleName' w kodowaniu Unicode przez ustawienie właściwości DllImport.CharSet na wartość CharSet.Unicode lub przez jawne kierowanie parametru jako typu UnmanagedType.LPWStr. Jeśli musisz kierować ten ciąg w kodowaniu ANSI lub zależnym od systemu, ustaw jawnie właściwość MarshalAs i ustaw wartość BestFitMapping=false. Aby zwiększyć bezpieczeństwo, ustaw również wartość ThrowOnUnmappableChar=true.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetWindowsHookEx(System.Int32,mykeylogger01.Program+LowLevelKeyboardProc,System.IntPtr,System.UInt32)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2022-11-10 13:02:09Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Ponieważ metoda 'Program.SetWindowsHookEx(int, Program.LowLevelKeyboardProc, IntPtr, uint)' jest metodą P/Invoke, powinna zostać zdefiniowana w klasie o nazwie NativeMethods, SafeNativeMethods lub UnsafeNativeMethods.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UnhookWindowsHookEx(System.IntPtr)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2022-11-10 13:02:09Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Ponieważ metoda 'Program.UnhookWindowsHookEx(IntPtr)' jest metodą P/Invoke, powinna zostać zdefiniowana w klasie o nazwie NativeMethods, SafeNativeMethods lub UnsafeNativeMethods.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="MarkWindowsFormsEntryPointsWithStaThread" Category="Microsoft.Usage" CheckId="CA2232">
+   <Name>Oznacz punkty wejścia formularzy systemu Windows atrybutem STAThread</Name>
+   <Description>Zestawy odwołujące się do elementu System.Windows.Forms powinny mieć atrybut STAThreadAttribute. Niepowodzenie w zastosowaniu tego atrybutu najprawdopodobniej spowoduje, że aplikacja nie będzie działać. Formularze systemu Windows opierają się na szeregu składników korzystających z modelu STA.</Description>
+   <Resolution Name="Default">Oznacz metodę punktu wejścia {0} w zestawie {1} atrybutem STAThreadAttribute.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182351.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="usagerules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060">
+   <Name>Przenieś metody P/Invoke do klasy NativeMethods</Name>
+   <Description>Ten typ zawiera składowe z atrybutem DllImport. Składowe z atrybutem DllImport powinny być zawarte w klasie o nazwie NativeMethods, SafeNativeMethods lub UnsafeNativeMethods.</Description>
+   <Resolution Name="Default">Ponieważ metoda {0} jest metodą P/Invoke, powinna zostać zdefiniowana w klasie o nazwie NativeMethods, SafeNativeMethods lub UnsafeNativeMethods.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182161.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="designrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyMarshalingForPInvokeStringArguments" Category="Microsoft.Globalization" CheckId="CA2101">
+   <Name>Określ kierowanie dla argumentów ciągu P/Invoke</Name>
+   <Description>Gdy ciągi są kierowane w kodowaniu ANSI (lub Auto w systemach Win9x), niektóre znaki mogą zostać zmienione. Jeśli mapowanie najlepszego dopasowania jest włączone, ciągi wyglądające inaczej w kodowaniu Unicode będą kierowane do identycznych ciągów w kodowaniu ANSI, co może być przyczyną niewłaściwych decyzji w zakresie zabezpieczeń. Wyłączenie mapowania najlepszego dopasowania ogranicza ryzyko, ponieważ wszystkie znaki bez odpowiedników są mapowane do znaku zapytania (?). Należy również pamiętać, że wartość CharSet.Ansi jest domyślnym ustawieniem dla każdego kierowania ciągu; kierowanie w kodzie Unicode musi zostać określone jawnie: albo za pomocą ustawienia CharSet dyrektyw DllImport lub StructLayout, albo przez ustawienie atrybutu MarshalAs na wartość Unicode (lub wartość zależną od systemu) typu UnmanagedType.</Description>
+   <Resolution Name="ParameterImplicitAnsi">Aby ograniczyć ryzyko związane z zabezpieczeniami, kieruj parametr {0} w kodowaniu Unicode przez ustawienie właściwości DllImport.CharSet na wartość CharSet.Unicode lub przez jawne kierowanie parametru jako typu UnmanagedType.LPWStr. Jeśli musisz kierować ten ciąg w kodowaniu ANSI lub zależnym od systemu, ustaw jawnie właściwość MarshalAs i ustaw wartość BestFitMapping=false. Aby zwiększyć bezpieczeństwo, ustaw również wartość ThrowOnUnmappableChar=true.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182319.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="16.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Kategoria</String>
+  <String Key="Certainty">Pewność</String>
+  <String Key="CollapseAll">Zwiń wszystko</String>
+  <String Key="CheckId">Identyfikator testu</String>
+  <String Key="Error">Błąd</String>
+  <String Key="Errors">błędy</String>
+  <String Key="ExpandAll">Rozwiń wszystko</String>
+  <String Key="Help">Pomoc</String>
+  <String Key="Line">Wiersz</String>
+  <String Key="Messages">komunikaty</String>
+  <String Key="LocationNotStoredInPdb">[Lokalizacja nie jest przechowywana w pliku PDB]</String>
+  <String Key="Project">Projekt</String>
+  <String Key="Resolution">Rozwiązanie</String>
+  <String Key="Rule">Reguła</String>
+  <String Key="RuleFile">Plik reguł</String>
+  <String Key="RuleDescription">Opis reguły</String>
+  <String Key="Source">Źródło</String>
+  <String Key="Status">Stan</String>
+  <String Key="Target">Element docelowy</String>
+  <String Key="Warning">Ostrzeżenie</String>
+  <String Key="Warnings">ostrzeżenia</String>
+  <String Key="ReportTitle">Raport rozszerzenia Code Analysis</String>
+ </Localized>
+</FxCopReport>

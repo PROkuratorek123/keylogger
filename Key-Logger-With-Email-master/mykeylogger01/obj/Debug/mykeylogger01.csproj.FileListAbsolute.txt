@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\obj\Debug\mykeylogger01.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\obj\Debug\mykeylogger01.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\bin\Debug\Discord.exe.config
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\bin\Debug\Discord.exe
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\bin\Debug\Discord.pdb
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\bin\Debug\Discord.exe.CodeAnalysisLog.xml
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\bin\Debug\Discord.exe.lastcodeanalysissucceeded
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\obj\Debug\Discord.exe
+C:\Users\Administrator\Desktop\keylogger\Key-Logger-With-Email-master\mykeylogger01\obj\Debug\Discord.pdb
